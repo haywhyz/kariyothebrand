@@ -6,7 +6,9 @@
     </head>
 
     <body>
-        @include('partials._nav') 
+        @include('partials._nav')
+
+        @include('partials._messages') 
       
         @yield('content')
 
@@ -17,6 +19,8 @@
         @include('partials._search')
         
         @include('partials._javascript')
+
+        @yield('scripts')
 
     </body>
 

@@ -40,20 +40,20 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/">Home</a></li>
-                            <li><a href="#">Women’s</a></li>
+                            <li class="{{ Request::is('/') ? "active" : "" }}" ><a href="/">Home</a></li>
+                            <li class="{{ Request::is('Women') ? "active" : "" }}" ><a href="/women">Women’s</a></li>
                             <li><a href="#">Men’s</a></li>
-                            <li><a href="/shop">Shop</a></li>
+                            <li class="{{ Request::is('shop') ? "active" : "" }}" ><a href="/shop">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="/product-details">Product Details</a></li>
+                                    <li class="{{ Request::is('product-details') ? "active" : "" }}" ><a href="/product-details">Product Details</a></li>
                                    {{--  <li><a href="/shop-cart">Shop Cart</a></li> --}}
-                                    <li><a href="/checkout">Checkout</a></li>
+                                    <li class="{{ Request::is('checkout') ? "active" : "" }}" ><a href="/checkout">Checkout</a></li>
                                    {{--  <li><a href="/blog-details">Blog Details</a></li> --}}
                                 </ul>
                             </li>
                             {{-- <li><a href="/blog">Blog</a></li> --}}
-                            <li><a href="/contact">Contact</a></li>
+                            <li  class="{{ Request::is('contact') ? "active" : "" }}" ><a href="/contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -68,8 +68,10 @@
                             <li><a href="#"><span class="icon_heart_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
+                            <li><a href="{{ route('cart.index') }}"><span class="icon_bag_alt">
+                            
+                            </span>
+                                <div class="tip">{{Cart::count()}}</div>
                             </a></li>
                         </ul>
                     </div>

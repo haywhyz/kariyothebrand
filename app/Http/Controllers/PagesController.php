@@ -1,12 +1,15 @@
 <?php 
 	
 namespace App\Http\Controllers;
+use App\Product;
+
 
 class PagesController extends Controller{
 
 	
 	public function getIndex() {
-		return view('pages.index');
+		$new=Product::all();
+		return view('pages.index',compact('new'));
 	}
 
 	public function getContact(){
@@ -33,14 +36,18 @@ class PagesController extends Controller{
 		return view('pages.product-details');
 	}
 
-	public function getLogin(){
-		return view('pages.login');
+	public function getSignin(){
+		return view('pages.sign-in');
 	}
 
 	public function getSignup(){
 		return view('pages.sign-up');
 	}
 
+	public function getWomen(){
+		$women=Product::all();
+		return view('pages.women',compact('women'));
+	}
 
 }	
  ?>
