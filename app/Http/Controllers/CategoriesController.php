@@ -18,7 +18,7 @@ class CategoriesController extends Controller
         $categories=Category::all();
 
 
-        return view('admin.category.index',compact(['categories','products']));
+        return view('admin.category.index')->with('categories', Category::all());
     }
 
     /**
@@ -51,9 +51,9 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-    
+
         $products=Category::find($id)->products;
-        
+
         $categories=Category::all();
 
         return view('admin.category.index',compact(['categories','products']));
@@ -91,8 +91,8 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category=Category::find($id);
-        $category->products()->delete();
+        // $category->category()->delete();
         $category->delete();
-        return back();
+        return redirect()->back();
     }
 }

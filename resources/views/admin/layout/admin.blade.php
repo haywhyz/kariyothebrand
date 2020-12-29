@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
     <link rel="stylesheet" href="{{asset('css/parsley.css')}}">
 </head>
@@ -41,9 +42,19 @@
 
 </div><!--/Page Content-->
 
-<script src="https://code.jquery.com/jquery.js"></script>
+{{-- <script src="https://code.jquery.com/jquery.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+
 <script src="{{asset('js/parsley.min.js')}}"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+$('#example').DataTable();
+} );
+</script>
+
 <script>
     $(document).ready(function () {
         $(".submenu > a").click(function (e) {
@@ -63,6 +74,7 @@
         });
     });
 </script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
 @yield('js')

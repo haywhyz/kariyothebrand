@@ -31,7 +31,7 @@ class ResetPasswordController extends Controller
     protected $redirectTo = '/home';
     protected function redirectTo()
     {
-        if (auth()->user()->role_id == 1) {
+        if (auth()->user()->admin == 1) {
             return '/admin';
         }
         return '/home';
